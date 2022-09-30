@@ -13,7 +13,7 @@ import java.io.*;
  * @author Paul Holden
  * @version July 2000
  */
-public class PointCP2Test
+public class PointCPTest
 {
   //Class methods *****************************************************
 
@@ -33,7 +33,7 @@ public class PointCP2Test
    */
   public static void main(String[] args)
   {
-    PointCP2 point;
+    PointCP point;
 
     System.out.println("Cartesian-Polar Coordinates Conversion Program");
 
@@ -42,7 +42,7 @@ public class PointCP2Test
     // If he did not, prompt the user for them.
     try
     {
-      point = new PointCP2(args[0].toUpperCase().charAt(0),
+      point = new PointCP(args[0].toUpperCase().charAt(0), 
         Double.valueOf(args[1]).doubleValue(), 
         Double.valueOf(args[2]).doubleValue());
     }
@@ -64,6 +64,8 @@ public class PointCP2Test
       }
     }
     System.out.println("\nYou entered:\n" + point);
+    point.convertStorageToCartesian();
+    System.out.println("\nAfter asking to store as Cartesian:\n" + point);
     point.convertStorageToPolar();
     System.out.println("\nAfter asking to store as Polar:\n" + point);
   }
@@ -78,7 +80,7 @@ public class PointCP2Test
    * @throws IOException If there is an error getting input from
    *         the user.
    */
-  private static PointCP2 getInput() throws IOException
+  private static PointCP getInput() throws IOException
   {
     byte[] buffer = new byte[1024];  //Buffer to hold byte input
     boolean isOK = false;  // Flag set if input correct
@@ -156,6 +158,6 @@ public class PointCP2Test
       isOK = false;
     }
     //Return a new PointCP object
-    return (new PointCP2(coordType, a, b));
+    return (new PointCP(coordType, a, b));
   }
 }
