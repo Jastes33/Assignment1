@@ -32,13 +32,10 @@ public class Employee {
         return hours;
     }
 
-    public double rate(){
+    public double getRate(){
         return rate;
     }
 
-    public Address[] getListOfAddress() {
-        return address;
-    }
 
     /**
      * Returns the address at index i if there exists an address at such index/the index is within the bounds
@@ -48,7 +45,7 @@ public class Employee {
      **/
 
     public Address getAddressAtIndex(int i) {
-        if(address.length-1 > i && i>=0) {
+        if(address.length > i && i>=0) {
             if (address[i] != null) {
                 return address[i];
             }
