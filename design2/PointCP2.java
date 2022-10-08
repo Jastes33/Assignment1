@@ -42,12 +42,16 @@ public class PointCP2
   {
     if(type != 'C' && type != 'P')
       throw new IllegalArgumentException();
-
-    this.rho = xOrRho;
-      this.rho = getRho();
-    this.theta = yOrTheta;
-    this.theta = getTheta();
-    typeCoord = type;
+    if(type =='P') {
+	    this.rho = xOrRho;
+	    this.theta = yOrTheta;
+	    typeCoord = type;
+    }
+    else {
+    	this.rho = Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2));
+    	this.theta= Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
+    	typeCoord = 'P';
+    }
   }
 	
   
@@ -66,53 +70,29 @@ public class PointCP2
   
   public double getRho()
   {
-    if(typeCoord == 'P')
       return rho;
-    else
-      return (Math.sqrt(Math.pow(rho, 2) + Math.pow(theta, 2)));
   }
+ 
   
   public double getTheta()
   {
-    if(typeCoord == 'P')
       return theta;
-    else
-      return Math.toDegrees(Math.atan2(theta, rho));
+  
   }
   
-	
-  /**
-   * Converts Cartesian coordinates to Polar coordinates.
-   */
-  public void convertStorageToPolar()
-  {
-    if(typeCoord != 'P')
-    {
-      //Calculate RHO and THETA
-      double temp = getRho();
-      theta = getTheta();
-      rho = temp;
-      
-      typeCoord = 'P';  //Change coord type identifier
-    }
-  }
-	
   /**
    * Converts Polar coordinates to Cartesian coordinates.
-   *
-  public void convertStorageToCartesian()
+ * @param <tuple>
+   */
+  public String convertStorageToCartesian()
   {
-    if(typeCoord != 'C')
-    {
-      //Calculate X and Y
-      double temp = getX();
-      yOrTheta = getY();
-      xOrRho = temp;
-   
-      typeCoord = 'C';	//Change coord type identifier
-    }
-  } Unsure of what to do with this, instructions unclear!
-  */
+	  String cart = getX()+" "+getY();
+	return cart;
+  } 
+  public void convertStorageToPolar() {
+		// points are already in polar and this method is not needed anymore
+		
+	}
   /**
    * Calculates the distance in between two points using the Pythagorean
    * theorem  (C ^ 2 = A ^ 2 + B ^ 2). Not needed until E2.30.
@@ -161,4 +141,7 @@ public class PointCP2
        ? "Cartesian  (" + getX() + "," + getY() + ")"
        : "Polar [" + getRho() + "," + getTheta() + "]") + "\n";
   }
+
+
+
 }

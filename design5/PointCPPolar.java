@@ -13,7 +13,7 @@
  * @author Dr Timothy C. Lethbridge
  * @version July 2000
  */
-public class PointCP3
+public class PointCPPolar extends PointCP5
 {
   //Instance variables ************************************************
 
@@ -24,16 +24,14 @@ public class PointCP3
   private char typeCoord;
   
   /**
-   * Contains the current value of X or RHO depending on the type
-   * of coordinates.
+   * Contains the current value of RHO
    */
-  private double x;
+  private double rho;
   
   /**
-   * Contains the current value of Y or THETA value depending on the
-   * type of coordinates.
+   * Contains the current value of THETA
    */
-  private double y;
+  private double theta;
 	
   
   //Constructors ******************************************************
@@ -41,24 +39,19 @@ public class PointCP3
   /**
    * Constructs a coordinate object, with a type identifier.
    */
-  public PointCP3(char type, double xOrRho, double yOrTheta)
+  public PointCPPolar(char type, double xOrRho, double yOrTheta)
   {
-    if(type != 'C' && type != 'P') {
+    if(type != 'C' && type != 'P')
       throw new IllegalArgumentException();
-    }
-    if(type == 'C') {
-    	this.x = xOrRho;
-    	this.y = yOrTheta;
-    	typeCoord= 'C';
-    	System.out.print("cart");
+    if(type =='P') {
+	    this.rho = xOrRho;
+	    this.theta = yOrTheta;
+	    typeCoord = type;
     }
     else {
-    	this.x = (Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
-    	this.y = (Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
-    	typeCoord = 'C';
-
-    	System.out.print("polar");
-    	
+    	this.rho = Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2));
+    	this.theta= Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
+    	typeCoord = 'P';
     }
   }
 	
@@ -67,43 +60,43 @@ public class PointCP3
  
  
   public double getX()
-  { 
-      return x;
+  {
+      return (Math.cos(Math.toRadians(theta)) * rho);
   }
   
   public double getY()
-  { 
-      return y;
+  {
+      return (Math.sin(Math.toRadians(theta)) * rho);
   }
   
   public double getRho()
-  {  
-      return (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+  {
+      return rho;
   }
+ 
   
   public double getTheta()
   {
-      return Math.toDegrees(Math.atan2(y, x));
+      return theta;
+  
   }
   
   /**
-   * Converts Cartesian coordinates to Polar coordinates.
+   * Converts Polar coordinates to Cartesian coordinates.
+ * @param <tuple>
    */
+  public String convertStorageToCartesian()
+  {
+	  String cart = getX()+" "+getY();
+	return cart;
+  } 
+
   public String convertStorageToPolar()
   {
     String coord = getRho() +" "+ getTheta();
     return coord;
     
   }
-	
-  /**
-   * Converts Polar coordinates to Cartesian coordinates.
-   */
-  public void convertStorageToCartesian()
-  {
-	  // method can be removed as the point will always be in Cartesian coordinates. 
-  }
-
   /**
    * Calculates the distance in between two points using the Pythagorean
    * theorem  (C ^ 2 = A ^ 2 + B ^ 2). Not needed until E2.30.
@@ -112,7 +105,8 @@ public class PointCP3
    * @param pointB The second point.
    * @return The distance between the two points.
    */
-  public double getDistance(PointCP3 pointB)
+  
+  public double getDistance(PointCP5 pointB)
   {
     // Obtain differences in X and Y, sign is not important as these values
     // will be squared later.
@@ -130,13 +124,13 @@ public class PointCP3
    * @param rotation The number of degrees to rotate the point.
    * @return The rotated image of the original point.
    */
-  public PointCP3 rotatePoint(double rotation)
+  public PointCPPolar rotatePoint(double rotation)
   {
     double radRotation = Math.toRadians(rotation);
     double X = getX();
     double Y = getY();
         
-    return new PointCP3('C',
+    return new PointCPPolar('C',
       (Math.cos(radRotation) * X) - (Math.sin(radRotation) * Y),
       (Math.sin(radRotation) * X) + (Math.cos(radRotation) * Y));
   }
@@ -152,4 +146,8 @@ public class PointCP3
        ? "Cartesian  (" + getX() + "," + getY() + ")"
        : "Polar [" + getRho() + "," + getTheta() + "]") + "\n";
   }
+
+
+
 }
+
