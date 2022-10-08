@@ -50,15 +50,11 @@ public class PointCPCart extends PointCP5
     	this.x = xOrRho;
     	this.y = yOrTheta;
     	typeCoord= 'C';
-    	System.out.print("cart");
     }
     else {
     	this.x = (Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
     	this.y = (Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
-    	typeCoord = 'C';
-
-    	System.out.print("polar");
-    	
+    	typeCoord = 'C';    	
     }
   }
 	
