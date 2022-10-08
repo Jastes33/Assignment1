@@ -1,0 +1,57 @@
+Cartesian-Polar Coordinates Conversion Program
+Enter the type of Coordinates you are inputting ((C)artesian / (P)olar): c
+Enter the value of X using a decimal point(.): 2.0
+Enter the value of Y using a decimal point(.): 3.0
+You entered:
+Stored as Cartesian  (2.0,3.0)
+
+
+After asking to store as Cartesian:
+Stored as Cartesian  (2.0,3.0)
+
+
+After asking to store as Polar:
+3.605551275463989 56.309932474020215
+----------------------------------------------------
+Cartesian-Polar Coordinates Conversion Program
+Enter the type of Coordinates you are inputting ((C)artesian / (P)olar): p
+Enter the value of Rho using a decimal point(.): 3.6
+Enter the value of Theta using a decimal point(.): 56.3
+You entered:
+Stored as Cartesian  (1.9974399388127977,2.995034839669737)
+
+
+After asking to store as Cartesian:
+Stored as Cartesian  (1.9974399388127977,2.995034839669737)
+
+
+After asking to store as Polar:
+3.6 56.3
+----------------------------------------------------
+With args
+----------------------------------------------------
+
+Cartesian-Polar Coordinates Conversion Program
+You entered:
+Stored as Cartesian  (25.0,36.5)
+
+
+After asking to store as Cartesian:
+Stored as Cartesian  (25.0,36.5)
+
+
+After asking to store as Polar:
+44.24081825644729 55.59152774797138
+---------------------------------------------------
+Cartesian-Polar Coordinates Conversion Program
+
+You entered:
+Stored as Cartesian  (25.000510829866727,36.49865830747367)
+
+
+After asking to store as Cartesian:
+Stored as Cartesian  (25.000510829866727,36.49865830747367)
+
+
+After asking to store as Polar:
+44.24 55.59

@@ -1,0 +1,82 @@
+Cartesian-Polar Coordinates Conversion Program
+Enter the type of Coordinates you are inputting ((C)artesian / (P)olar): c
+Enter the value of X using a decimal point(.): 10
+Enter the value of Y using a decimal point(.): 12.0
+
+You entered:
+Stored as Polar [15.620499351813308,50.19442890773481]
+
+
+After asking to store as Cartesian:
+9.999999999999998 12.000000000000002
+
+After asking to store as Polar:
+Stored as Polar [15.620499351813308,50.19442890773481]
+
+-----------------------------------
+
+
+Cartesian-Polar Coordinates Conversion Program
+Enter the type of Coordinates you are inputting ((C)artesian / (P)olar): c
+Enter the value of X using a decimal point(.): 2.0
+Enter the value of Y using a decimal point(.): 1.5
+
+You entered:
+Stored as Polar [2.5,36.86989764584402]
+
+
+After asking to store as Cartesian:
+2.0 1.5
+
+After asking to store as Polar:
+Stored as Polar [2.5,36.86989764584402]
+
+----------------------------------------
+
+Cartesian-Polar Coordinates Conversion Program
+Enter the type of Coordinates you are inputting ((C)artesian / (P)olar): p
+Enter the value of Rho using a decimal point(.): 10.0
+Enter the value of Theta using a decimal point(.): 90
+
+You entered:
+Stored as Polar [10.0,90.0]
+
+
+After asking to store as Cartesian:
+6.123233995736766E-16 10.0
+
+After asking to store as Polar:
+Stored as Polar [10.0,90.0]
+
+-----------------------------------------
+
+Cartesian-Polar Coordinates Conversion Program
+Enter the type of Coordinates you are inputting ((C)artesian / (P)olar): p
+Enter the value of Rho using a decimal point(.): 2.5
+Enter the value of Theta using a decimal point(.): 36.86
+
+You entered:
+Stored as Polar [2.5,36.86]
+
+
+After asking to store as Cartesian:
+2.0002590899196173 1.4996544846043522
+
+After asking to store as Polar:
+Stored as Polar [2.5,36.86]
+
+---------------------------------------
+with args
+
+Cartesian-Polar Coordinates Conversion Program
+
+You entered:
+Stored as Polar [2.5,90.0]
+
+
+After asking to store as Cartesian:
+1.5308084989341916E-16 2.5
+
+After asking to store as Polar:
+Stored as Polar [2.5,90.0]
+
